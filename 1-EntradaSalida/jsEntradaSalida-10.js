@@ -12,9 +12,11 @@ function MostrarAumento()
 
 	importe=parseInt(importe);
 
-	descuento=importe*25/100;
+	/*descuento=importe*25/100;
 
-	resultado=importe-descuento;
+	resultado=importe-descuento;*/
+
+	resultado=importe*0.75
 
 	document.getElementById('resultado').value=resultado;
 }
