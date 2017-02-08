@@ -6,15 +6,22 @@ function MostrarAumento()
 {
 	var sueldo;
 	var resultado;
-	var aumento;
+	//var aumento;
 	
 	sueldo=document.getElementById('sueldo').value; //tomar importe
 
 	sueldo=parseInt(sueldo); //transformarlo a entero
 
-	aumento=sueldo*10/100; //calculo del aumento
+	//aumento=sueldo*10/100; //calculo del aumento
 
-	resultado=sueldo+aumento; //calculo del resultado
+	//resultado=sueldo+aumento; //calculo del resultado
+
+	
+
+	//sueldo*1.10;    10%
+	//sueldo*0.90;   90%
+
+	resultado=sueldo*1.10;
 
 	document.getElementById('resultado').value=resultado; //mostrar el importe en el cuadro
 
