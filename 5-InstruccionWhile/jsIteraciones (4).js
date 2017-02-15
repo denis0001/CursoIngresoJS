@@ -3,7 +3,7 @@ function Mostrar()
 
 	var numero; 
 
-	variable = contador = 0;
+	variable = contador = 1;
 
 	numero = prompt("Ingrese un número entre 0 y 9");
 
@@ -20,9 +20,8 @@ function Mostrar()
 			alert('Cagaste ahora no vas a poder salir')
 		}
 			
-
 	}
 
-	document.getElementById('Numero').value=(numero+' Lo pusiste bien');
+	document.getElementById('Numero').value=(numero+' Lo pusiste bien capo');
 
 }//FIN DE LA FUNCIÓN
