@@ -88,7 +88,18 @@ function Mostrar()
 	var sexo;
 	var masViejo;
 	var edadmasViejo;
-	var contadorMujeres;
+	var contadorMujeres=0;
+	var contadorHombres=0;
+	var contadorMujeresMenores=0;
+	var mujerMejorNota;
+	var hombreMejorNota;
+	var contadorMujeres2;
+	var contadorHombres2;
+	var sumadorNotaF;
+	var sumadorNotaM;
+	var promedioM;
+	var promedioF;
+
 	while (respuesta=='s')
 	{
 		contadorNota++;
@@ -114,7 +125,7 @@ function Mostrar()
 		nombre=prompt('Ingrese nombre');
 
 		sexo=prompt('Ingrese sexo: m o f');
-		while(sexo!=m || sexo!=f)
+		while(!(sexo=='m' || sexo=='f'))
 		{
 			sexo=prompt('Ingrese sexo: m o f');
 		}
@@ -140,6 +151,38 @@ function Mostrar()
 			contadorMujeres++;
 		}
 
+		if (sexo=='m' && nota>3)
+		{
+			contadorHombres++;
+		}
+
+		if (sexo=='m' && edad<20)
+		{
+			contadorMujeresMenores++;
+		}
+
+		if(nota>nota && sexo=='f')
+		{
+			mujerMejorNota=nombre;
+		}
+		if (nota>nota && sexo=='m')
+		{
+			hombreMejorNota=nombre;
+		}
+
+		if(sexo=='m')
+		{
+			contadorHombres2++;
+			sumadorNotaM=sumadorNotaM+nota;
+		}
+		if (sexo=='f')
+		{
+			contadorMujeres2++;
+			sumadorNotaF=sumadorNotaF+nota
+		}
+
+
+
 		/*
 			1-cantidad de mujeres aprobadas
 			2-cantidad de hombres mayores a 25 aprobados
@@ -164,7 +207,9 @@ function Mostrar()
 		respuesta=prompt('ingrese s para continuar');
 	}
 
+	promedioM=sumadorNotaM/contadorHombres2;
 
+	promedioF=sumadorNotaF/contadorMujeres2;
 
 
 	promedioNota=sumadorNota/contadorNota;
