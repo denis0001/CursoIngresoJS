@@ -82,6 +82,7 @@ function Mostrar()
 	var nota;
 	var sumadorNota=0;
 	var contadorNota=0;
+	var contadorPersonas=0;
 	var promedioNota;
 	var edad;
 	var nombre;
@@ -89,16 +90,28 @@ function Mostrar()
 	var masViejo;
 	var edadmasViejo;
 	var contadorMujeres=0;
-	var contadorHombres=0;
-	var contadorMujeresMenores=0;
-	var mujerMejorNota;
-	var hombreMejorNota;
-	var contadorMujeres2;
+	var contadorHombresAprobados=0;
+	var contadorMujeresMenores20=0;
+	var nombreMujerMejorNota=0;
+	var notaMujerMejorNota=0;
+	var nombreHombreMejorNota=0;
+	var notaHombreMejorNota=0;
+	var contadorMujeresAprobadas=0;
 	var contadorHombres2;
 	var sumadorNotaF;
 	var sumadorNotaM;
 	var promedioM;
 	var promedioF;
+	var nombrePrimer10;
+	var contadorPrimer10=0;
+	var sumadorAprobados=0;
+	var sumadorDesaprobados=0;
+	var contadorAprobados=0;
+	var contadorDesaprobados=0;
+	var promedioAprobados;
+	var promedioDesaprobados;
+	var contadorHombresMayoresAprobados=0;
+	var sexoPrimer10;
 
 	while (respuesta=='s')
 	{
@@ -131,6 +144,7 @@ function Mostrar()
 		}
 		//aca termino la carga de validacion de datos
 		//comenzamos a hacer las operaciones necesarias
+		contadorPersonas++;
 
 		if (contadorNota==0)
 		{
@@ -139,7 +153,7 @@ function Mostrar()
 		}
 		else 
 		{
-			if(edad>edadasmasViejo)
+			if(edad>edadmasViejo)
 			{
 				masViejo=nombre;
 				edadmasViejo=edad;
@@ -148,31 +162,38 @@ function Mostrar()
 
 		if (sexo =='f' && nota>3)
 		{
-			contadorMujeres++;
+			contadorMujeresAprobadas++;
 		}
 
 		if (sexo=='m' && nota>3)
 		{
-			contadorHombres++;
+			contadorHombresAprobados++;
 		}
 
-		if (sexo=='m' && edad<20)
+		if (sexo=='m' && edad>25 && nota>3)
 		{
-			contadorMujeresMenores++;
+			contadorHombresMayoresAprobados++;
 		}
 
-		if(nota>nota && sexo=='f')
+		if (sexo=='f' && edad<20)
 		{
-			mujerMejorNota=nombre;
+			contadorMujeresMenores20++;
 		}
-		if (nota>nota && sexo=='m')
+
+		if(nota>notaMujerMejorNota && sexo=='f')
 		{
-			hombreMejorNota=nombre;
+			notaMujerMejorNota=nota;
+			nombreMujerMejorNota=nombre;
+		}
+		if (nota>notaHombreMejorNota && sexo=='m')
+		{
+			notaHombreMejorNota=nota;
+			nombreHombreMejorNota=nombre;
 		}
 
 		if(sexo=='m')
 		{
-			contadorHombres2++;
+			contadorHombres++;
 			sumadorNotaM=sumadorNotaM+nota;
 		}
 		if (sexo=='f')
@@ -181,6 +202,22 @@ function Mostrar()
 			sumadorNotaF=sumadorNotaF+nota
 		}
 
+		if(nota==10 && contadorPrimer10==0)
+		{
+			contadorPrimer10++;
+			primer10 = nombre;
+			sexoPrimer10 = sexo;
+		}
+
+		if(nota>3)
+		{
+			contadorAprobados++;
+		}
+
+		if (nota<4)
+		{
+			contadorDesaprobados++;
+		}
 
 
 		/*
@@ -207,20 +244,44 @@ function Mostrar()
 		respuesta=prompt('ingrese s para continuar');
 	}
 
-	promedioM=sumadorNotaM/contadorHombres2;
+	promedioM=sumadorNotaM/contadorHombres;
 
-	promedioF=sumadorNotaF/contadorMujeres2;
+	promedioF=sumadorNotaF/contadorMujeres;
 
 
 	promedioNota=sumadorNota/contadorNota;
 
-	promedioNota=prompt(promedioNota);
+	//promedioNota=prompt(promedioNota);
+
+	promedioAprobados=contadorPersonas/contadorAprobados;
+	promedioDesaprobados=contadorPersonas/contadorDesaprobados;
 
 
+	document.write('1-La cantidad de mujeres aprobadas es: '+contadorMujeresAprobadas+'<BR>'+
+					'2-La cantidad de hombres mayores a 25 años aprobados es: '+ contadorHombresMayoresAprobados+'<BR>'+
+					'3-La cantidad de mujeres menores a 20 años es: '+contadorMujeresMenores20+'<BR>'+
+					'4-El nombre de la mujer con la mejor nota es: ' +nombreMujerMejorNota+'<BR>'+
+					'5-El nombre del hombre con mejor nota es: '+nombreHombreMejorNota+'<BR>'+
+					'6-El promedio de nota de los hombres es: ' +promedioM+'<BR>'+
+					'7-El promedio de nota de las mujeres es: ' +promedioF+'<BR>'+
+					'8-El porcentaje de aprobados es '+promedioAprobados+ ' y el de desaprobados es '+promedioDesaprobados+'<BR>'+
+					'9- El sexo de la primer persona que se sacó 10 es: '+sexoPrimer10+ 'y el nombre '+nombrePrimer10);
 
 
 }
 
+		/*
+			1-cantidad de mujeres aprobadas
+			2-cantidad de hombres mayores a 25 aprobados
+			3-cantidad de mujeres menores a 20 años 
+			4-el nombre de la mujer con la mejore nota
+			5-el nombre del hombre con mejor nota
+			6-promedio de nota de los hombres
+			7-promedio de nota de las mujres
+			8-porcentajes de aprobados vs desaprobados
+			9-el sexo y el nombre de la primer persona que se saque 10
+
+		*/
 
 
 //FIN DE LA FUNCIÓN
