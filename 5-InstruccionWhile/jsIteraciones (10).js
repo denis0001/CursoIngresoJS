@@ -97,7 +97,8 @@ function Mostrar()
 	var nombreHombreMejorNota=0;
 	var notaHombreMejorNota=0;
 	var contadorMujeresAprobadas=0;
-	var contadorHombres2;
+	//var contadorHombres2;
+	var contadorHombres=0;
 	var sumadorNotaF;
 	var sumadorNotaM;
 	var promedioM;
@@ -145,6 +146,16 @@ function Mostrar()
 		//aca termino la carga de validacion de datos
 		//comenzamos a hacer las operaciones necesarias
 		contadorPersonas++;
+
+		if(nota>3)
+		{
+			contadorAprobados++;
+		}
+
+		if (nota<4)
+		{
+			contadorDesaprobados++;
+		}
 
 		if (contadorNota==0)
 		{
@@ -209,15 +220,7 @@ function Mostrar()
 			sexoPrimer10 = sexo;
 		}
 
-		if(nota>3)
-		{
-			contadorAprobados++;
-		}
 
-		if (nota<4)
-		{
-			contadorDesaprobados++;
-		}
 
 
 		/*
