@@ -81,26 +81,26 @@ function Mostrar()
 	var respuesta = 's';
 	var nota;
 	var sumadorNota=0;
-	var contadorNota=0;
+	//var contadorNota=0;
 	var contadorPersonas=0;
 	var promedioNota;
 	var edad;
 	var nombre;
 	var sexo;
-	var masViejo;
-	var edadmasViejo;
+	//var masViejo;
+	//var edadmasViejo;
 	var contadorMujeres=0;
 	var contadorHombresAprobados=0;
 	var contadorMujeresMenores20=0;
-	var nombreMujerMejorNota=0;
+	var nombreMujerMejorNota;
 	var notaMujerMejorNota=0;
-	var nombreHombreMejorNota=0;
+	var nombreHombreMejorNota;
 	var notaHombreMejorNota=0;
 	var contadorMujeresAprobadas=0;
 	//var contadorHombres2;
 	var contadorHombres=0;
-	var sumadorNotaF;
-	var sumadorNotaM;
+	var sumadorNotaF=0;
+	var sumadorNotaM=0;
 	var promedioM;
 	var promedioF;
 	var nombrePrimer10;
@@ -109,14 +109,14 @@ function Mostrar()
 	var sumadorDesaprobados=0;
 	var contadorAprobados=0;
 	var contadorDesaprobados=0;
-	var promedioAprobados;
-	var promedioDesaprobados;
+	var porcentajeAprobados;
+	var porcentajeDesaprobados;
 	var contadorHombresMayoresAprobados=0;
 	var sexoPrimer10;
 
 	while (respuesta=='s')
 	{
-		contadorNota++;
+		//contadorNota++;
 
 		nota=prompt('Por favor ingrese su nota');
 		nota=parseInt(nota);
@@ -157,7 +157,7 @@ function Mostrar()
 			contadorDesaprobados++;
 		}
 
-		if (contadorNota==0)
+		/*if (contadorNota==0)
 		{
 			masViejo=nombre;
 			edadmasViejo=edad;
@@ -170,7 +170,7 @@ function Mostrar()
 				edadmasViejo=edad;
 			}
 		}
-
+		*/
 		if (sexo =='f' && nota>3)
 		{
 			contadorMujeresAprobadas++;
@@ -209,15 +209,23 @@ function Mostrar()
 		}
 		if (sexo=='f')
 		{
-			contadorMujeres2++;
+			contadorMujeres++;
 			sumadorNotaF=sumadorNotaF+nota
 		}
 
 		if(nota==10 && contadorPrimer10==0)
 		{
 			contadorPrimer10++;
-			primer10 = nombre;
+			nombrePrimer10 = nombre;
 			sexoPrimer10 = sexo;
+			if (sexoPrimer10=='m')
+			{
+				sexoPrimer10='masculino';
+			}
+			else
+			{
+				sexoPrimer10='femenino';
+			}
 		}
 
 
@@ -227,7 +235,7 @@ function Mostrar()
 			1-cantidad de mujeres aprobadas
 			2-cantidad de hombres mayores a 25 aprobados
 			3-cantidad de mujeres menores a 20 años 
-			4-el nombre de la mujer con la mejore nota
+			4-el nombre de la mujer con la mejor nota
 			5-el nombre del hombre con mejor nota
 			6-promedio de nota de los hombres
 			7-promedio de nota de las mujres
@@ -240,7 +248,7 @@ function Mostrar()
 
 
 
-		sumadorNota=nota+sumadorNota;
+		//sumadorNota=nota+sumadorNota;
 		
 
 
@@ -252,23 +260,23 @@ function Mostrar()
 	promedioF=sumadorNotaF/contadorMujeres;
 
 
-	promedioNota=sumadorNota/contadorNota;
+	//promedioNota=sumadorNota/contadorNota;
 
 	//promedioNota=prompt(promedioNota);
 
-	promedioAprobados=contadorPersonas/contadorAprobados;
-	promedioDesaprobados=contadorPersonas/contadorDesaprobados;
+	porcentajeAprobados=(contadorAprobados/contadorPersonas)*100;
+	porcentajeDesaprobados=(contadorDesaprobados/contadorPersonas)*100;
 
 
 	document.write('1-La cantidad de mujeres aprobadas es: '+contadorMujeresAprobadas+'<BR>'+
 					'2-La cantidad de hombres mayores a 25 años aprobados es: '+ contadorHombresMayoresAprobados+'<BR>'+
 					'3-La cantidad de mujeres menores a 20 años es: '+contadorMujeresMenores20+'<BR>'+
-					'4-El nombre de la mujer con la mejor nota es: ' +nombreMujerMejorNota+'<BR>'+
-					'5-El nombre del hombre con mejor nota es: '+nombreHombreMejorNota+'<BR>'+
+					'4-El nombre de la mujer con la mejor nota es: ' +nombreMujerMejorNota+ ' y se sacó '+notaMujerMejorNota+ '<BR>'+
+					'5-El nombre del hombre con mejor nota es: '+nombreHombreMejorNota+' y se sacó ' +notaMujerMejorNota+ '<BR>'+
 					'6-El promedio de nota de los hombres es: ' +promedioM+'<BR>'+
 					'7-El promedio de nota de las mujeres es: ' +promedioF+'<BR>'+
-					'8-El porcentaje de aprobados es '+promedioAprobados+ ' y el de desaprobados es '+promedioDesaprobados+'<BR>'+
-					'9- El sexo de la primer persona que se sacó 10 es: '+sexoPrimer10+ 'y el nombre '+nombrePrimer10);
+					'8-El porcentaje de aprobados es '+porcentajeAprobados+ '% y el de desaprobados es '+porcentajeDesaprobados+'%'+'<BR>'+
+					'9- El sexo de la primer persona que se sacó 10 es: '+sexoPrimer10+ ' y el nombre '+nombrePrimer10);
 
 
 }
