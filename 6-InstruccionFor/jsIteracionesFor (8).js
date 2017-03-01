@@ -19,37 +19,36 @@ function Mostrar()
 	var tieneDivisor='no';
 	var numeroRecorrido;
 
-	numeroIngresado=prompt('Ingrese numero');
+	numeroIngresado=prompt(numeroIngresado);
 	numeroIngresado=parseInt(numeroIngresado);
 
-	for(numeroRecorrido=2;numeroAnterior<(numeroIngresado/2);numeroRecorrido++)
+	//for(numeroRecorrido=2; numeroRecorrido<numeroIngresado;numeroRecorrido++)
+	for(numeroRecorrido=2;numeroRecorrido<numeroIngresado;numeroRecorrido++)
 	{
-		console.log(numeroRecorrido);
-		tieneDivisor="no";
+		tieneDivisor='no';
 
-		for (numeroAnterior=2;numeroAnterior<(numeroIngresado/2);numeroAnterior++)
+		for (numeroAnterior=2;numeroAnterior<numeroIngresado;numeroAnterior++)
 		{
 
-		if (numeroIngresado % numeroAnterior==0)
-
-		{
+			if (numeroIngresado % numeroAnterior==0)
+			{
 			tieneDivisor="si";
 			//alert("es divisor");
 			break;
-		}
+			}
 
-		/*else
-		{
-			alert("no es divisor");
-		}
-		*/
 		}
 
 		if(tieneDivisor=='no')
 		{
-			console.log('Es primo '+numeroIngresado);
+
+		console.log('Es primo '+numeroIngresado);
+
 		}
 	}
+
+	
+	
 
 	
 	/*else
